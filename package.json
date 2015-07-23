@@ -1,0 +1,24 @@
+{
+  "name": "susi-events-nodejs",
+  "version": "0.1.0",
+  "description": "A nodejs implementation of the SUSI interface",
+  "main": "susi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webvariants/susi-events-nodejs.git"
+  },
+  "keywords": [
+    "susi",
+    "appserver",
+    "iot"
+  ],
+  "author": "Tino Rusch <tino.rusch@webvariants.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webvariants/susi-events-nodejs/issues"
+  },
+  "homepage": "https://github.com/webvariants/susi-events-nodejs#readme"
+}
