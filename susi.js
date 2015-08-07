@@ -56,7 +56,9 @@ function Susi(){
             for(var i=0;i<publishProcess.consumers.length;i++){
                 publishProcess.consumers[i](evt);
             }
-            publishProcess.finishCallback(evt);
+            if(typeof publishProcess.finishCallback === 'function'){
+                publishProcess.finishCallback(evt);
+            }
             delete _publishProcesses[evt.id];
         }
     };
