@@ -9,7 +9,7 @@ function Susi(){
     var _processorTopicCounter = {};
 
     var _publishProcesses = {};
-    
+
     var generateId = function(){
         return crypto.randomBytes(16).toString('hex');
     };
@@ -21,18 +21,24 @@ function Susi(){
             return false;
         }
         evt.id = evt.id || generateId();
+        evt.ack = function() {
+            self.ack(this);
+        };
+        evt.dismiss = function() {
+            self.dismiss(this);
+        };
         var publishProcess = {
             next: 0,
             processors: [],
             consumers: [],
             finishCallback: finishCallback
-        };
-        for(var i=0;i<_processors.length;i++){
+        }, i;
+        for(i=0;i<_processors.length;i++){
             if(evt.topic.match(_processors[i].topic)){
                publishProcess.processors.push(_processors[i].callback);
             }
         }
-        for(var i=0;i<_consumers.length;i++){
+        for(i=0;i<_consumers.length;i++){
             if(evt.topic.match(_consumers[i].topic)){
                publishProcess.consumers.push(_consumers[i].callback);
             }

@@ -5,13 +5,13 @@ var susi = new Susi();
 // register preprocessor for all events
 susi.registerProcessor('.*', function(evt) {
     evt.payload = evt.payload || {};
-    susi.ack(evt);
+    evt.ack();
 });
 
 // add 'foo' processor
 var processorId = susi.registerProcessor('foo', function(evt) {
     evt.payload.foo = 'bar';
-    susi.ack(evt);
+    evt.ack();
 });
 
 // add 'foo' consumer
